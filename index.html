@@ -15,7 +15,7 @@
 
         /* Body dengan Dark Gradient Hitam - Biru */
         body {
-            background: linear-gradient(135deg, #000000 0%, #0f172a 50%, #1e3a8a 100%);
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e3a8a 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -26,120 +26,201 @@
 
         /* Container Glassmorphism */
         .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 30px;
             width: 100%;
-            max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 480px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
 
         h1 {
-            margin-bottom: 10px;
-            font-size: 24px;
+            margin-bottom: 8px;
+            font-size: 26px;
             background: linear-gradient(to right, #60a5fa, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: bold;
+            font-weight: 800;
         }
 
-        p {
+        p.subtitle {
             color: #94a3b8;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-size: 14px;
+            line-height: 1.5;
         }
 
         /* Input Group */
         .input-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         input {
-            padding: 15px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 16px;
             border: 1px solid #334155;
             background: #0f172a;
             color: white;
             outline: none;
-            font-size: 16px;
-            transition: 0.3s;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
         }
 
         input:focus {
             border-color: #3b82f6;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         }
 
         button {
-            padding: 15px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 16px;
             border: none;
             background: linear-gradient(to right, #2563eb, #1d4ed8);
             color: white;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
         }
 
         button:disabled {
             background: #475569;
             cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
         /* Result Area */
         #result {
             margin-top: 25px;
-            display: none; /* Hidden by default */
-            animation: fadeIn 0.5s ease;
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.5s ease;
         }
 
-        .video-info {
+        .video-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 16px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 15px;
+            margin-bottom: 20px;
+            text-align: left;
         }
 
-        .video-info img {
-            width: 100px;
-            height: 100px;
+        .video-card img {
+            width: 70px;
+            height: 70px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 2px solid #3b82f6;
         }
 
+        .video-info h4 {
+            color: #f1f5f9;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .video-info p {
+            color: #94a3b8;
+            font-size: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .download-btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
-            background: #10b981; /* Green for download action */
+            background: #10b981;
             color: white;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #059669;
+        }
+
+        .download-btn.audio {
+            background: #3b82f6;
+        }
+        
+        .download-btn.audio:hover {
+            background: #2563eb;
+        }
+
+        /* iOS Warning Box */
+        .ios-hint {
+            display: none; /* Hidden by default */
+            margin-top: 15px;
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.2);
             padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 10px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .ios-hint p {
+            font-size: 12px;
+            color: #fde047;
+            margin: 0;
+            line-height: 1.4;
         }
 
         .error-msg {
-            color: #ef4444;
-            margin-top: 10px;
+            background: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 15px;
             font-size: 14px;
             display: none;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -148,25 +229,43 @@
 
     <div class="container">
         <h1>TikTok Downloader</h1>
-        <p>Tempel tautan video TikTok untuk mengunduh tanpa watermark.</p>
+        <p class="subtitle">Unduh video TikTok tanpa watermark dengan kualitas HD. Gratis dan cepat.</p>
 
         <div class="input-group">
-            <input type="text" id="tiktokUrl" placeholder="Tempel link TikTok di sini (https://...)">
+            <input type="text" id="tiktokUrl" placeholder="Tempel link TikTok di sini..." autocomplete="off">
             <button onclick="downloadVideo()" id="btnSubmit">Download Video</button>
         </div>
 
         <div class="error-msg" id="errorMsg"></div>
 
         <div id="result">
-            <div class="video-info">
+            <div class="video-card">
                 <img id="thumb" src="" alt="Thumbnail">
-                <div style="text-align: left; width: 100%;">
-                    <h4 id="author" style="color: white;">User</h4>
-                    <p id="desc" style="font-size: 12px; margin: 0;">Description</p>
+                <div class="video-info">
+                    <h4 id="author">@username</h4>
+                    <p id="desc">Deskripsi video...</p>
                 </div>
             </div>
-            <a href="#" id="downloadLink" class="download-btn" target="_blank">Download MP4 No Watermark</a>
-            <a href="#" id="musicLink" class="download-btn" style="background: #3b82f6; margin-top: 10px;" target="_blank">Download Audio (MP3)</a>
+
+            <div class="btn-group">
+                <a href="#" id="downloadLink" class="download-btn" target="_blank">
+                    <span>📹 Download Video (No Watermark)</span>
+                </a>
+                <a href="#" id="musicLink" class="download-btn audio" target="_blank">
+                    <span>🎵 Download Musik (MP3)</span>
+                </a>
+            </div>
+
+            <div id="ios-hint-box" class="ios-hint">
+                <p>
+                    ⚠️ <b>Pengguna iPhone/iPad:</b><br>
+                    Video akan terbuka di tab baru. Ketuk tombol <b>Share</b> (ikon panah ke atas) di browser, lalu pilih <b>"Save to Files"</b> untuk menyimpan.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2024 TikTok Downloader
         </div>
     </div>
 
@@ -176,46 +275,63 @@
             const btn = document.getElementById('btnSubmit');
             const resultDiv = document.getElementById('result');
             const errorDiv = document.getElementById('errorMsg');
+            const iosHintBox = document.getElementById('ios-hint-box');
 
-            // Validasi sederhana
+            // Reset UI
+            errorDiv.style.display = "none";
+            resultDiv.style.display = "none";
+            iosHintBox.style.display = "none";
+
+            // Validasi input kosong
             if (!urlInput) {
-                showError("Harap masukkan link TikTok terlebih dahulu.");
+                showError("Harap masukkan link video TikTok yang valid.");
                 return;
             }
 
-            // Reset UI
-            btn.innerText = "Memproses...";
+            // Ubah tombol jadi loading
+            const originalBtnText = btn.innerText;
+            btn.innerText = "Sedang Memproses...";
             btn.disabled = true;
-            resultDiv.style.display = "none";
-            errorDiv.style.display = "none";
 
             try {
-                // PENTING: Kita menggunakan API publik gratis dari TikWM.
-                // Jika API ini down, Anda perlu menggantinya dengan API lain (misal dari RapidAPI).
+                // Menggunakan API Publik TikWM
                 const apiUrl = `https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}`;
 
                 const response = await fetch(apiUrl);
                 const data = await response.json();
 
                 if (data.code === 0) {
-                    // Sukses
+                    // Isi Data ke HTML
                     document.getElementById('thumb').src = data.data.cover;
                     document.getElementById('author').innerText = '@' + data.data.author.unique_id;
-                    document.getElementById('desc').innerText = data.data.title;
+                    
+                    // Potong deskripsi jika terlalu panjang
+                    let desc = data.data.title;
+                    if (desc.length > 50) desc = desc.substring(0, 50) + "...";
+                    document.getElementById('desc').innerText = desc;
                     
                     document.getElementById('downloadLink').href = data.data.play; 
                     document.getElementById('musicLink').href = data.data.music;
 
+                    // Tampilkan Hasil
                     resultDiv.style.display = "block";
+
+                    // LOGIKA BARU: Cek apakah user pakai iPhone/iPad
+                    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                    if (isIOS) {
+                        iosHintBox.style.display = "block";
+                    }
+
                 } else {
-                    showError("Gagal mengambil video. Pastikan link benar atau akun tidak di-private.");
+                    showError("Video tidak ditemukan. Pastikan akun tidak di-private.");
                 }
 
             } catch (err) {
                 console.error(err);
-                showError("Terjadi kesalahan jaringan. Coba lagi nanti.");
+                showError("Gagal menghubungi server. Coba lagi beberapa saat lagi.");
             } finally {
-                btn.innerText = "Download Video";
+                // Kembalikan tombol seperti semula
+                btn.innerText = originalBtnText;
                 btn.disabled = false;
             }
         }
