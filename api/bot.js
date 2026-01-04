@@ -1,10 +1,10 @@
-
 // api/bot.js
 const { Telegraf } = require('telegraf');
 const axios = require('axios');
 
-// GANTI TOKEN_INI_DENGAN_TOKEN_DARI_BOTFATHER
-const bot = new Telegraf(process.env.7883375170:AAFjJF_BOGsZWeCSmgitx5nKkuCIlqfbjOQ);
+// --- TOKEN LANGSUNG DIPASANG DI SINI ---
+const token = '7883375170:AAFjJF_BOGsZWeCSmgitx5nKkuCIlqfbjOQ';
+const bot = new Telegraf(token);
 
 // Pesan Start
 bot.start((ctx) => {
@@ -24,7 +24,7 @@ bot.on('text', async (ctx) => {
     ctx.reply('⏳ Sedang memproses video, mohon tunggu sebentar...');
 
     try {
-        // 2. Menggunakan API TikWM (Sama seperti di script.js)
+        // 2. Menggunakan API TikWM
         const apiUrl = `https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}`;
         const response = await axios.get(apiUrl);
         const data = response.data;
@@ -35,20 +35,17 @@ bot.on('text', async (ctx) => {
 
             // 3. Kirim Video ke Telegram
             await ctx.replyWithVideo(
-                { url: videoData.play }, // Mengirim link video langsung
+                { url: videoData.play }, 
                 { caption: caption }
             );
 
-            // Opsional: Kirim Audio juga jika mau
-            // await ctx.replyWithAudio({ url: videoData.music }, { title: "Audio TikTok" });
-
         } else {
-            ctx.reply('❌ Video tidak ditemukan. Pastikan akun tidak di-private.');
+            ctx.reply('❌ Video tidak ditemukan atau akun di-private.');
         }
 
     } catch (error) {
         console.error(error);
-        ctx.reply('❌ Terjadi kesalahan pada server atau API.');
+        ctx.reply('❌ Terjadi kesalahan pada server. Coba lagi nanti.');
     }
 });
 
@@ -58,6 +55,7 @@ module.exports = async (req, res) => {
         await bot.handleUpdate(req.body);
         res.status(200).send('OK');
     } catch (e) {
+        console.error("Error di Webhook:", e);
         res.status(500).send('Error');
     }
 };
