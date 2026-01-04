@@ -8,8 +8,7 @@ const bot = new Telegraf(token);
 
 // Pesan Start
 bot.start((ctx) => {
-    ctx.reply('Halo! Kirimkan link video TikTok, aku akan downloadkan tanpa watermark untukmu.\n\nPowered by Fhrydl Downloader.');
-    ctx.reply('Website resmi https://fhrydl-downloader.vercel.app');
+    ctx.reply('Halo! Kirimkan link video TikTok, aku akan downloadkan tanpa watermark untukmu.\n\nPowered by Fhrydl Downloader. \https://fhrydl-downloader.vercel.app');
 });
 
 // Logic menangani pesan text
