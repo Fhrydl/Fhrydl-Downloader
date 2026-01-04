@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fhrydl Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Fhrydl Downloader</h1>
+        <p class="subtitle">Unduh video TikTok tanpa watermark dengan kualitas HD. Gratis dan cepat.</p>
+
+        <div class="input-group">
+            <div class="input-wrapper">
+                <input type="text" id="tiktokUrl" placeholder="Link video..." autocomplete="off">
+                <button type="button" id="actionBtn" class="input-action-btn btn-paste" onclick="handleInputBtn()">
+                    Tempel
+                </button>
+            </div>
+            <button onclick="downloadVideo()" id="btnSubmit">Download Video</button>
+        </div>
+
+        <div class="error-msg" id="errorMsg"></div>
+
+        <div id="result">
+            <div class="video-card">
+                <img id="thumb" src="" alt="Thumbnail">
+                <div class="video-info">
+                    <h4 id="author">@username</h4>
+                    <p id="desc">Deskripsi video...</p>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <a href="#" id="downloadLink" class="download-btn" target="_blank">
+                    <span>📹 Download Video (No Watermark)</span>
+                </a>
+                <a href="#" id="musicLink" class="download-btn audio" target="_blank">
+                    <span>🎵 Download Musik (MP3)</span>
+                </a>
+            </div>
+
+            <div id="ios-hint-box" class="ios-hint">
+                <p>
+                    ⚠️ <b>Pengguna iPhone/iPad:</b><br>
+                    Video akan terbuka di tab baru. Ketuk tombol <b>Share</b> (ikon panah ke atas) di browser, lalu pilih <b>"Save to Files"</b> untuk menyimpan.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Fhrydl Downloader
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
