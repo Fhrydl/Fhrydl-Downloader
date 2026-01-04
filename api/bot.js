@@ -4,7 +4,7 @@ const { Telegraf } = require('telegraf');
 const axios = require('axios');
 
 // GANTI TOKEN_INI_DENGAN_TOKEN_DARI_BOTFATHER
-const bot = new Telegraf(process.env. 7883375170:AAFjJF_BOGsZWeCSmgitx5nKkuCIlqfbjOQ);
+const bot = new Telegraf(process.env.7883375170:AAFjJF_BOGsZWeCSmgitx5nKkuCIlqfbjOQ);
 
 // Pesan Start
 bot.start((ctx) => {
